@@ -58,7 +58,7 @@ var IndexView = Ember.View.extend({
     var markerChange = this.markerChange.bind(this);
     google.maps.event.addListener(marker, 'dragend', markerChange);
 
-    if (this.get('controller.search') === null){
+    if (!this.get('controller.search')){
       GMaps.geolocate({
         success: function(position){
           map.setCenter(position.coords.latitude, position.coords.longitude);

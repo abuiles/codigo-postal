@@ -1,20 +1,20 @@
 body{
   font-family: 'Droid Sans', 'Helvetica', Arial, sans-serif;
-  margin:5px;
 }
-.inputs{
-  padding-bottom: 20px;
+.search-container{
+  padding-top: 70px;
 }
+
 #map{
   display: block;
   width: 95%;
   height: 600px;
-  margin: 0 auto;
-  -moz-box-shadow: 0px 5px 20px #ccc;
-  -webkit-box-shadow: 0px 5px 20px #ccc;
-  box-shadow: 0px 5px 20px #ccc;
 }
 
 #map.large{
   height:500px;
+}
+
+.zip-code{
+  font-size: 20px;
 }

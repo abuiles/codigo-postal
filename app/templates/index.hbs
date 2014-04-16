@@ -1,18 +1,25 @@
-<h1>Tu código postal</h1>
-
-{{#if zip}}
-<div class="animate">
-  <h3>es {{zip}}</h3>
+<div class="row search-container">
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-3">
+    <label for="address">Dirección:
+      {{input value=search placeholder='dirección'}}
+    </label>
+  </div>
+  <div class="col-md-8 animate">
+    {{#if zip}}
+    <p class="text-success zip-code"> Tu código postal es {{zip}}</p>
+    {{/if}}
+  </div>
 </div>
-{{/if}}
 <div class="row">
-  <div class="span11">
-    <div class='inputs'>
-      <label for="address">Address:
-        {{input value=search}}
-      </label>
-    </div >
-
+  <div class="col-md-1 adds">
+    <p> adds</p>
+  </div>
+  <div class="col-md-10">
     <div id="map"></div>
+  </div>
+  <div class="col-md-1 adds">
+    <p> adds</p>
   </div>
 </div>

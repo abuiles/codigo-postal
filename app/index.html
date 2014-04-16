@@ -10,8 +10,10 @@
     <script>
       window.ENV = {{ENV}};
       document.write('<base href="' + ENV.rootURL + '" />');
+      document.write('<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=' + ENV.gmapsApiKey + '&sensor=true"><\/script>');
     </script>
 
+    <link rel="stylesheet" href="assets/animate.min.css">
     <link rel="stylesheet" href="assets/app.css">
     <script src="assets/app.js"></script>
   </head>

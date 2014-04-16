@@ -8,6 +8,7 @@
 /node_modules
 /vendor/*
 !/vendor/_loader.js
+!/vendor/_gmaps-shim.js
 
 # misc
 /.sass-cache

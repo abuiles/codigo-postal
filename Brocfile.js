@@ -55,12 +55,14 @@ var appAndDependencies = mergeTrees(sourceTrees, { overwrite: true });
 var legacyFilesToAppend = [
   'jquery.js',
   'handlebars.js',
-  'ember.js',
+  'ember/index.js',
   'ic-ajax/dist/named-amd/main.js',
   'ember-data.js',
   'app-shims.js',
   'ember-resolver.js',
-  'ember-load-initializers.js'
+  'ember-load-initializers.js',
+  'gmaps.js',
+  '_gmaps-shim.js'
 ];
 
 var applicationJs = preprocessJs(appAndDependencies, '/', prefix);

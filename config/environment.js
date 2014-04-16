@@ -1,11 +1,10 @@
 module.exports = function(environment) {
   var ENV = {
     rootURL: '/',
+    gmapsApiKey: 'AIzaSyCnZsN4gNqD4HPs5LaHlmZ11ATJsWkj6NQ',
     FEATURES: {
-      // Here you can enable experimental features on an ember canary build
-      // e.g. 'with-controller': true
+      "query-params-new" : true
     },
-
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

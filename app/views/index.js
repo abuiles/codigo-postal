@@ -44,6 +44,7 @@ var IndexView = Ember.View.extend({
 
     controller.set('lat', marker.position.lat());
     controller.set('lng', marker.position.lng());
+    this.get('map').setCenter(marker.position.lat(), marker.position.lng());
   },
   renderMap: function() {
     var map = this.get('map'),

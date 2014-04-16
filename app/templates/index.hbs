@@ -3,13 +3,17 @@
   </div>
   <div class="col-md-3">
     <label for="address">Dirección:
-      {{input value=search placeholder='dirección'}}
+      {{input value=search}}
     </label>
   </div>
-  <div class="col-md-8 animate">
-    {{#if zip}}
-    <p class="text-success zip-code"> Tu código postal es {{zip}}</p>
-    {{/if}}
+  <div class="col-md-8">
+    {{#if loading}}
+        <img src="/images/spinner.gif"/> buscando
+      {{else}}
+        {{#if zip}}
+          {{zip-code zip=zip}}
+        {{/if}}
+      {{/if}}
   </div>
 </div>
 <div class="row">

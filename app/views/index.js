@@ -4,13 +4,10 @@ var computed = Ember.computed;
 
 var IndexView = Ember.View.extend({
   animate: function() {
-
-    if (this.$('.animate')){
-      Ember.run.scheduleOnce('afterRender', this, function(){
-        this.$('.animate').addClass('animated flash');
-      });
+    if (this.get('controller.zip')) {
+      this.get('infoWindow').setContent('<p class="info-marker">' + this.get('controller.zip') + '</p>');
+      $(".info-marker").addClass('animated flash');
     }
-    this.get('infoWindow').setContent('<p>' + this.get('controller.zip') || '' + '</p>');
   }.observes('controller.zip'),
   map: computed(function(){
     return new GMaps({
@@ -83,7 +80,7 @@ var IndexView = Ember.View.extend({
       map = this.get('map'),
       marker = this.get('marker');
 
-    if (search === null) {
+    if (!search) {
       return false;
     }
 
@@ -94,6 +91,7 @@ var IndexView = Ember.View.extend({
           var latlng = results[0].geometry.location;
           map.setCenter(latlng.lat(), latlng.lng());
           marker.setPosition(latlng);
+          controller.setProperties({lat: latlng.lat(), lng: latlng.lng()});
         }
       }
     });

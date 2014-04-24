@@ -6,23 +6,30 @@ var push = Array.prototype.push;
 var p = require('ember-cli/lib/preprocessors');
 var preprocessCss = p.preprocessCss;
 
+var legacyFilesToAppend = [
+  'jquery.js',
+  'handlebars.js'
+];
 
+if (env == 'production') {
+  legacyFilesToAppend = legacyFilesToAppend.concat('ember-prod/index.js');
+} else {
+  legacyFilesToAppend = legacyFilesToAppend.concat('ember.js');
+}
+
+legacyFilesToAppend = legacyFilesToAppend.concat(
+  'ic-ajax/dist/named-amd/main.js',
+  'app-shims.js',
+  'ember-resolver.js',
+  'ember-load-initializers.js',
+  'gmaps.js',
+  '_gmaps-shim.js'
+);
 
 var app = new EmberApp(env, {
   name: require('./package.json').name,
 
-  legacyFilesToAppend: [
-    'jquery.js',
-    'handlebars.js',
-    'ember.js',
-    'ic-ajax/dist/named-amd/main.js',
-    'ember-data.js',
-    'app-shims.js',
-    'ember-resolver.js',
-    'ember-load-initializers.js',
-    'gmaps.js',
-    '_gmaps-shim.js'
-  ],
+  legacyFilesToAppend: legacyFilesToAppend,
 
   // AKA whitelisted modules
   ignoredModules: [

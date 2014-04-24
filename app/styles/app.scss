@@ -1,29 +1,32 @@
-body{
+@import 'bootstrap';
+@import 'animate';
+
+body {
   font-family: 'Droid Sans', 'Helvetica', Arial, sans-serif;
 }
 
-.zip-result-component{
+.zip-result-component {
   display: inline-block;
 }
 
-.search-container{
+.search-container {
   padding-top: 70px;
 }
 
-#map{
+#map {
   display: block;
   width: 95%;
   height: 500px;
 }
 
-.search input{
+.search input {
   width: 100%;
 }
 
-.zip-code{
+.zip-code {
   font-size: 20px;
 }
 
-.footer-ad{
+.footer-ad {
   padding-top: 20px;
 }

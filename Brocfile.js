@@ -1,8 +1,12 @@
 /* global require, module */
-
+var csso = require('broccoli-csso');
 var env = require('broccoli-env').getEnv();
 var EmberApp = require('ember-cli/lib/broccoli/ember-app');
 var push = Array.prototype.push;
+var p = require('ember-cli/lib/preprocessors');
+var preprocessCss = p.preprocessCss;
+
+
 
 var app = new EmberApp(env, {
   name: require('./package.json').name,
@@ -64,4 +68,13 @@ if (env !== 'production') {
   ]);
 }
 
+EmberApp.prototype.styles = function() {
+  var styles =  preprocessCss(this.appAndDependencies(), this.name + '/styles', '/assets');
+
+  if (this.env === 'production') {
+    styles = csso(styles);
+  }
+
+  return styles;
+};
 module.exports = app.toTree();
